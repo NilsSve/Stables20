@@ -1127,14 +1127,14 @@ Class cFileFunctions is a cObject
         Move "" to sRval
         If (ReadFileData(Self,sPath,&strFileData)) Begin
             Move strFileData.nFileSize to nSize
-            Get_Argument_Size to iArgSize
-
-            If (iArgSize<nSize) begin
-                Move "File too big. Adjust max arg size. (File: # MAS: #)" to sError
-                Move (Replace("#",sError,string(nSize))) to sError
-                Move (Replace("#",sError,string(iArgSize))) to sError
-                Error 421 sError
-            end
+//            Get_Argument_Size to iArgSize
+//
+//            If (iArgSize<nSize) begin
+//                Move "File too big. Adjust max arg size. (File: # MAS: #)" to sError
+//                Move (Replace("#",sError,string(nSize))) to sError
+//                Move (Replace("#",sError,string(iArgSize))) to sError
+//                Error 421 sError
+//            end
             Get DirectInput ("binary:"+sPath) to iChannel
             If (iChannel>=0) Begin
                 Read_Block channel iChannel sRval nSize
