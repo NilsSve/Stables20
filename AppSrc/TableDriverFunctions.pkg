@@ -1,4 +1,4 @@
-Use VdfBase.pkg
+﻿Use VdfBase.pkg
 
 Use cli.pkg // DAW package
 
@@ -16,6 +16,7 @@ Enumeration_List // Driver ID's
 End_Enumeration_List
 
 Struct tConnectivityServer
+    String sID
 End_Struct
 
 Struct tConnectivityDriver
