@@ -105,37 +105,42 @@ Class _cStringFunctions is a cObject
     Procedure MaxArgumentSizeAdjust Integer iSize Boolean bDownsizeIfPossible
         Integer iCurrentSize iIndex
         Boolean bSet
-        Move (SizeOfArray(_gasfMAS)) to iIndex
-        Get_Argument_Size to iCurrentSize
-        Move (iSize>iCurrentSize or bDownsizeIfPossible) to bSet
-        If (bSet) Begin
-            Set_Argument_Size iSize
-            Move iCurrentSize to _gasfMAS[iIndex].iSize
-        End
-        Move bSet to _gasfMAS[iIndex].bSet
+
+//        Move (SizeOfArray(_gasfMAS)) to iIndex
+//        Get_Argument_Size to iCurrentSize
+//        Move (iSize>iCurrentSize or bDownsizeIfPossible) to bSet
+//        If (bSet) Begin
+//            Set_Argument_Size iSize
+//            Move iCurrentSize to _gasfMAS[iIndex].iSize
+//        End
+//        Move bSet to _gasfMAS[iIndex].bSet
+        Move False to _gasfMAS[iIndex].bSet
     End_Procedure
     
     //> See: Class:_cStringFunctions,Procedure:MaxArgumentSizeAdjust
     Procedure MaxArgumentSizeRestore
         Integer iIndex iSize
-        Move (SizeOfArray(_gasfMAS)-1) to iIndex
-        If (iIndex>=0) Begin
-            If (_gasfMAS[iIndex].bSet) Begin
-                Move _gasfMAS[iIndex].iSize to iSize
-                Set_Argument_Size iSize
-            End
-            Move (ResizeArray(_gasfMAS,iIndex)) to _gasfMAS
-        End
-        Else Begin
-            Error 666 "Unbalanced argument size push/pop (StringFunctions.pkg)"
-        End
+
+        Procedure_Return
+
+//        Move (SizeOfArray(_gasfMAS)-1) to iIndex
+//        If (iIndex>=0) Begin
+//            If (_gasfMAS[iIndex].bSet) Begin
+//                Move _gasfMAS[iIndex].iSize to iSize
+//                Set_Argument_Size iSize
+//            End
+//            Move (ResizeArray(_gasfMAS,iIndex)) to _gasfMAS
+//        End
+//        Else Begin
+//            Error 666 "Unbalanced argument size push/pop (StringFunctions.pkg)"
+//        End
     End_Procedure
     
-    Function MaxArgumentSize Returns Integer
-        Integer iCurrentSize
-        Get_Argument_Size to iCurrentSize
-        Function_Return iCurrentSize
-    End_Function
+//    Function MaxArgumentSize Returns Integer
+//        Integer iCurrentSize
+//        Get_Argument_Size to iCurrentSize
+//        Function_Return iCurrentSize
+//    End_Function
 
     Function CurrentCollateString Returns String
         Integer iChar iItem iMax hArr
