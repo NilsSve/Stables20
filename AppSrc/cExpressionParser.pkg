@@ -1666,9 +1666,17 @@ Class cExpressionParser is a cExpressionParserBasic
         Send DefineOperator (&stGrammar) "<"    2 6 0 (RefFunc(_fLT))
         Send DefineOperator (&stGrammar) ">="   2 6 0 (RefFunc(_fGE))
         Send DefineOperator (&stGrammar) "<="   2 6 0 (RefFunc(_fLE))
+        // Added by Nils:
+        Send DefineOperator (&stGrammar) "gt"    2 6 0 (RefFunc(_fGT))
+        Send DefineOperator (&stGrammar) "lt"    2 6 0 (RefFunc(_fLT))
+        Send DefineOperator (&stGrammar) "ge"   2 6 0 (RefFunc(_fGE))
+        Send DefineOperator (&stGrammar) "le"   2 6 0 (RefFunc(_fLE))
         // Priority 7
         Send DefineOperator (&stGrammar) "<>"   2 7 0 (RefFunc(_fNE))
         Send DefineOperator (&stGrammar) "="    2 7 0 (RefFunc(_fEQ))
+        // Added by Nils
+        Send DefineOperator (&stGrammar) "ne"   2 7 0 (RefFunc(_fNE))
+        Send DefineOperator (&stGrammar) "eq"    2 7 0 (RefFunc(_fEQ))
         // Priority 9
         Send DefineOperator (&stGrammar) "and"  2 9 0 (RefFunc(_fAnd))
         Send DefineOperator (&stGrammar) "or"   2 9 0 (RefFunc(_fOr))
